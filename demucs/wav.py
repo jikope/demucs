@@ -80,7 +80,7 @@ def build_metadata(path, sources, normalize=True, ext=EXT):
     path = Path(path)
     pendings = []
     from concurrent.futures import ThreadPoolExecutor
-    with ThreadPoolExecutor(8) as pool:
+    with ThreadPoolExecutor(1) as pool:
         for root, folders, files in os.walk(path, followlinks=True):
             root = Path(root)
             if root.name.startswith('.') or folders or root == path:

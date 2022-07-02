@@ -301,6 +301,7 @@ class Solver(object):
         logprog = LogProgress(logger, data_loader, total=total,
                               updates=self.args.misc.num_prints, name=name)
         averager = EMA()
+        logger.info("running test")
 
         for idx, sources in enumerate(logprog):
             sources = sources.to(self.device)

@@ -33,7 +33,7 @@ from demucs.pretrained import SOURCES
 from demucs.wav import build_metadata, Wavset, _get_musdb_valid
 
 
-MUSDB_PATH = '/checkpoint/defossez/datasets/musdbhq'
+MUSDB_PATH = '/content/demucs/MUSDB_HQ'
 EXTRA_WAV_PATH = "/checkpoint/defossez/datasets/allstems_44"
 # WARNING: OUTPATH will be completely erased.
 OUTPATH = Path.home() / 'tmp/demucs_mdx/automix_musdb/'
@@ -295,7 +295,7 @@ def main():
     copies = 6
     copies_rej = 2
 
-    with ProcessPoolExecutor(20) as pool:
+    with ProcessPoolExecutor(1) as pool:
         for index in range(len(dset)):
             pendings.append(pool.submit(analyse_track, dset, index))
 

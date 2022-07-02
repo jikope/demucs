@@ -8,10 +8,10 @@ defaults:
 
 dummy:
 dset:
-  musdb: /checkpoint/defossez/datasets/musdbhq
+  musdb: /content/demucs/MUSDB_HQ
   musdb_samplerate: 44100
   wav:  # path to custom wav dataset
-  segment: 11
+  segment: 8
   shift: 1
   train_valid: false
   full_cv: true
@@ -33,8 +33,8 @@ test:
   metric: 'loss'  # metric used for best model selection on the valid set, can also be nsdr
   nonhq:   # path to non hq MusDB for evaluation
 
-epochs: 360
-batch_size: 64
+epochs: 80
+batch_size: 8
 max_batches:  # limit the number of batches per epoch, useful for debugging
               # or if your dataset is gigantic.
 optim:
@@ -89,7 +89,7 @@ model_segment:  # override the segment parameter for the model, usually 4 times 
 model: demucs
 demucs:  # see demucs/demucs.py for a detailed description
   # Channels
-  channels: 64
+  channels: 8
   growth: 2
   # Main structure
   depth: 6
@@ -120,7 +120,7 @@ demucs:  # see demucs/demucs.py for a detailed description
 
 hdemucs:  # see demucs/hdemucs.py for a detailed description
   # Channels
-  channels: 48
+  channels: 8
   channels_time:
   growth: 2
   # STFT
